@@ -1,0 +1,45 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.input-field, .select-field, .button {
+    margin: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #3498db; /* Cor da borda */
+}
+
+.input-field, .select-field {
+    width: 200px;
+}
+
+.button {
+    background-color: #3498db; /* Cor de fundo azul clara */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transição suave ao passar o mouse */
+}
+
+.button:hover {
+    background-color: #2980b9; /* Altera a cor de fundo ao passar o mouse */
+}
+
+.separator {
+    border: none;
+    height: 1px;
+    background-color: #ccc; /* Cor da linha */
+    margin: 20px 0;
+}
+
+.value-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.value-list li {
+    margin-bottom: 5px;
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordenando</title>
+    <link rel="stylesheet" href="ordenando.css">
+</head>
+<body>
+    <h1>Ordenando valores</h1>
+    
+    <!-- Campo de entrada numérico -->
+    <input type="number" id="valor" class="input-field">
+    
+    <!-- Botão para adicionar -->
+    <button class="button" onclick="add()">Adicionar</button>
+    
+    <!-- Linha horizontal -->
+    <hr class="separator">
+
+    <!-- Campo de seleção -->
+    <select id="algoritmo" class="select-field">
+        <option value="bubble_sort" selected>Bubble Sort</option>
+        <option value="selection_sort">Selection Sort</option>
+        <option value="quick_sort">Quick Sort</option>
+    </select>
+    
+    <!-- Botão para ordenar -->
+    <button class="button" onclick="ordenar()">Ordenar</button>
+    
+    <!-- Botão para misturar -->
+    <button class="button" onclick="misturar()">Misturar</button>
+    
+    <!-- Lista de valores -->
+    <ul id="valores" class="value-list"></ul>
+    
+    <!-- Script com as funções -->
+    <script src="ordenando.js"></script>
+</body>
+</html>
+
+</body>
+</html>
+    <script>
+        // Função para adicionar valor à lista
+        function add() {
+            const inputValue = parseInt(document.getElementById('valor').value);
+            const list = document.getElementById('valores');
+            const node = document.createElement('li');
+            const textNode = document.createTextNode(inputValue);
+            node.appendChild(textNode);
+            list.appendChild(node);
+        }
+
+        // Função para ordenar a lista
+        function ordenar() {
+            const list = document.getElementById('valores');
+            const selection = document.getElementById('algoritmo');
+            const values = Array.from(list.children).map(item => parseInt(item.innerHTML));
+            let algorithm;
+            switch (selection.selectedIndex) {
+                case 0:
+                    algorithm = bubble_sort;
+                    break;
+                case 1:
+                    algorithm = selection_sort;
+                    break;
+                case 2:
+                    algorithm = quick_sort;
+                    break;
+            }
+            algorithm(values);
+            list.innerHTML = values.map(value => `<li>${value}</li>`).join('');
+        }
+
+        // Função para misturar a lista
+        function misturar() {
+            const list = document.getElementById('valores');
+            const values = Array.from(list.children).map(item => parseInt(item.innerHTML));
+            shuffle(values, values.length * 2);
+            list.innerHTML = values.map(value => `<li>${value}</li>`).join('');
+        }
+    </script>
+</body>
+</html>
